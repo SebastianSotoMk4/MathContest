@@ -22,4 +22,8 @@ Public Class MathContestForm
         'On start up the add button is checked to prevent floating inputs
         AddRadioButton.Checked = True
     End Sub
+
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        Me.Close()
+    End Sub
 End Class

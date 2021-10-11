@@ -23,6 +23,7 @@ Partial Class MathContestForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MathContestForm))
         Me.StudentInfoGroupBox = New System.Windows.Forms.GroupBox()
         Me.GradeLabel = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -446,8 +447,9 @@ Partial Class MathContestForm
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.StudentInfoGroupBox)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MathContestForm"
-        Me.Text = "Form1"
+        Me.Text = "Math Contest"
         Me.StudentInfoGroupBox.ResumeLayout(False)
         Me.StudentInfoGroupBox.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
