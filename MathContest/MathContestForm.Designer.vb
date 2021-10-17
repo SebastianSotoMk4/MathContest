@@ -49,6 +49,7 @@ Partial Class MathContestForm
         Me.StudentAnswerTextBox = New System.Windows.Forms.TextBox()
         Me.SecondNumberTextBox = New System.Windows.Forms.TextBox()
         Me.FirstNumberTextBox = New System.Windows.Forms.TextBox()
+        Me.SummaryTextBox = New System.Windows.Forms.TextBox()
         Me.StudentInfoGroupBox.SuspendLayout()
         Me.MathProblemTypeBox.SuspendLayout()
         Me.MathProblemGroupBox.SuspendLayout()
@@ -72,7 +73,7 @@ Partial Class MathContestForm
         'GradeLabel
         '
         Me.GradeLabel.AutoSize = True
-        Me.GradeLabel.Location = New System.Drawing.Point(147, 24)
+        Me.GradeLabel.Location = New System.Drawing.Point(49, 21)
         Me.GradeLabel.Name = "GradeLabel"
         Me.GradeLabel.Size = New System.Drawing.Size(36, 13)
         Me.GradeLabel.TabIndex = 13
@@ -80,15 +81,15 @@ Partial Class MathContestForm
         '
         'GradeTextBox
         '
-        Me.GradeTextBox.Location = New System.Drawing.Point(146, 40)
+        Me.GradeTextBox.Location = New System.Drawing.Point(52, 37)
         Me.GradeTextBox.Name = "GradeTextBox"
         Me.GradeTextBox.Size = New System.Drawing.Size(28, 20)
-        Me.GradeTextBox.TabIndex = 12
+        Me.GradeTextBox.TabIndex = 2
         '
         'AgeLabel
         '
         Me.AgeLabel.AutoSize = True
-        Me.AgeLabel.Location = New System.Drawing.Point(114, 24)
+        Me.AgeLabel.Location = New System.Drawing.Point(14, 21)
         Me.AgeLabel.Name = "AgeLabel"
         Me.AgeLabel.Size = New System.Drawing.Size(26, 13)
         Me.AgeLabel.TabIndex = 11
@@ -96,15 +97,15 @@ Partial Class MathContestForm
         '
         'AgeTextBox
         '
-        Me.AgeTextBox.Location = New System.Drawing.Point(112, 40)
+        Me.AgeTextBox.Location = New System.Drawing.Point(12, 37)
         Me.AgeTextBox.Name = "AgeTextBox"
         Me.AgeTextBox.Size = New System.Drawing.Size(28, 20)
-        Me.AgeTextBox.TabIndex = 10
+        Me.AgeTextBox.TabIndex = 1
         '
         'NameLabel
         '
         Me.NameLabel.AutoSize = True
-        Me.NameLabel.Location = New System.Drawing.Point(6, 22)
+        Me.NameLabel.Location = New System.Drawing.Point(86, 21)
         Me.NameLabel.Name = "NameLabel"
         Me.NameLabel.Size = New System.Drawing.Size(35, 13)
         Me.NameLabel.TabIndex = 9
@@ -112,10 +113,10 @@ Partial Class MathContestForm
         '
         'NameTextBox
         '
-        Me.NameTextBox.Location = New System.Drawing.Point(6, 40)
+        Me.NameTextBox.Location = New System.Drawing.Point(86, 37)
         Me.NameTextBox.Name = "NameTextBox"
         Me.NameTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.NameTextBox.TabIndex = 8
+        Me.NameTextBox.TabIndex = 3
         '
         'MathProblemTypeBox
         '
@@ -137,7 +138,7 @@ Partial Class MathContestForm
         Me.DivideRadioButton.Location = New System.Drawing.Point(6, 88)
         Me.DivideRadioButton.Name = "DivideRadioButton"
         Me.DivideRadioButton.Size = New System.Drawing.Size(55, 17)
-        Me.DivideRadioButton.TabIndex = 3
+        Me.DivideRadioButton.TabIndex = 14
         Me.DivideRadioButton.TabStop = True
         Me.DivideRadioButton.Text = "Divide"
         Me.DivideRadioButton.UseVisualStyleBackColor = True
@@ -148,7 +149,7 @@ Partial Class MathContestForm
         Me.MultiplyRadioButton.Location = New System.Drawing.Point(6, 65)
         Me.MultiplyRadioButton.Name = "MultiplyRadioButton"
         Me.MultiplyRadioButton.Size = New System.Drawing.Size(60, 17)
-        Me.MultiplyRadioButton.TabIndex = 2
+        Me.MultiplyRadioButton.TabIndex = 13
         Me.MultiplyRadioButton.TabStop = True
         Me.MultiplyRadioButton.Text = "Multiply"
         Me.MultiplyRadioButton.UseVisualStyleBackColor = True
@@ -159,7 +160,7 @@ Partial Class MathContestForm
         Me.SubtractRadioButton.Location = New System.Drawing.Point(6, 42)
         Me.SubtractRadioButton.Name = "SubtractRadioButton"
         Me.SubtractRadioButton.Size = New System.Drawing.Size(65, 17)
-        Me.SubtractRadioButton.TabIndex = 1
+        Me.SubtractRadioButton.TabIndex = 12
         Me.SubtractRadioButton.TabStop = True
         Me.SubtractRadioButton.Text = "Subtract"
         Me.SubtractRadioButton.UseVisualStyleBackColor = True
@@ -170,7 +171,7 @@ Partial Class MathContestForm
         Me.AddRadioButton.Location = New System.Drawing.Point(6, 19)
         Me.AddRadioButton.Name = "AddRadioButton"
         Me.AddRadioButton.Size = New System.Drawing.Size(44, 17)
-        Me.AddRadioButton.TabIndex = 0
+        Me.AddRadioButton.TabIndex = 11
         Me.AddRadioButton.TabStop = True
         Me.AddRadioButton.Text = "Add"
         Me.AddRadioButton.UseVisualStyleBackColor = True
@@ -180,7 +181,7 @@ Partial Class MathContestForm
         Me.SubmitButton.Location = New System.Drawing.Point(77, 415)
         Me.SubmitButton.Name = "SubmitButton"
         Me.SubmitButton.Size = New System.Drawing.Size(75, 23)
-        Me.SubmitButton.TabIndex = 2
+        Me.SubmitButton.TabIndex = 7
         Me.SubmitButton.Text = "Submit"
         Me.SubmitButton.UseVisualStyleBackColor = True
         '
@@ -189,7 +190,7 @@ Partial Class MathContestForm
         Me.ClearButton.Location = New System.Drawing.Point(158, 415)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(75, 23)
-        Me.ClearButton.TabIndex = 3
+        Me.ClearButton.TabIndex = 8
         Me.ClearButton.Text = "Clear"
         Me.ClearButton.UseVisualStyleBackColor = True
         '
@@ -198,7 +199,7 @@ Partial Class MathContestForm
         Me.SummeryButton.Location = New System.Drawing.Point(239, 415)
         Me.SummeryButton.Name = "SummeryButton"
         Me.SummeryButton.Size = New System.Drawing.Size(75, 23)
-        Me.SummeryButton.TabIndex = 4
+        Me.SummeryButton.TabIndex = 9
         Me.SummeryButton.Text = "Summery"
         Me.SummeryButton.UseVisualStyleBackColor = True
         '
@@ -207,7 +208,7 @@ Partial Class MathContestForm
         Me.ExitButton.Location = New System.Drawing.Point(320, 415)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(75, 23)
-        Me.ExitButton.TabIndex = 5
+        Me.ExitButton.TabIndex = 10
         Me.ExitButton.Text = "Exit"
         Me.ToolTip.SetToolTip(Me.ExitButton, "Click to exit")
         Me.ExitButton.UseVisualStyleBackColor = True
@@ -259,27 +260,36 @@ Partial Class MathContestForm
         Me.StudentAnswerTextBox.Location = New System.Drawing.Point(6, 110)
         Me.StudentAnswerTextBox.Name = "StudentAnswerTextBox"
         Me.StudentAnswerTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.StudentAnswerTextBox.TabIndex = 2
+        Me.StudentAnswerTextBox.TabIndex = 6
         '
         'SecondNumberTextBox
         '
         Me.SecondNumberTextBox.Location = New System.Drawing.Point(6, 71)
         Me.SecondNumberTextBox.Name = "SecondNumberTextBox"
         Me.SecondNumberTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.SecondNumberTextBox.TabIndex = 1
+        Me.SecondNumberTextBox.TabIndex = 5
         '
         'FirstNumberTextBox
         '
         Me.FirstNumberTextBox.Location = New System.Drawing.Point(6, 32)
         Me.FirstNumberTextBox.Name = "FirstNumberTextBox"
         Me.FirstNumberTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.FirstNumberTextBox.TabIndex = 0
+        Me.FirstNumberTextBox.TabIndex = 4
+        '
+        'SummaryTextBox
+        '
+        Me.SummaryTextBox.Location = New System.Drawing.Point(416, 66)
+        Me.SummaryTextBox.Name = "SummaryTextBox"
+        Me.SummaryTextBox.Size = New System.Drawing.Size(284, 20)
+        Me.SummaryTextBox.TabIndex = 11
+        Me.SummaryTextBox.TabStop = False
         '
         'MathContestForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.SummaryTextBox)
         Me.Controls.Add(Me.MathProblemGroupBox)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.SummeryButton)
@@ -297,6 +307,7 @@ Partial Class MathContestForm
         Me.MathProblemGroupBox.ResumeLayout(False)
         Me.MathProblemGroupBox.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -325,4 +336,5 @@ Partial Class MathContestForm
     Friend WithEvents StudentAnswerTextBox As TextBox
     Friend WithEvents SecondNumberTextBox As TextBox
     Friend WithEvents FirstNumberTextBox As TextBox
+    Friend WithEvents SummaryTextBox As TextBox
 End Class
