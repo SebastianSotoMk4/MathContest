@@ -38,8 +38,10 @@ Public Class MathContestForm
             SubmitButton.Enabled = True
             MathProblemGroupBox.Enabled = True
             MathProblemTypeBox.Enabled = True
+            AddRadioButton.Checked = True
         Else
             SubmitButton.Enabled = False
+            SummeryButton.Enabled = False
             MathProblemGroupBox.Enabled = False
             MathProblemTypeBox.Enabled = False
             FirstNumberTextBox.Text = ""
@@ -75,7 +77,7 @@ Public Class MathContestForm
         AgeTextBox.Text = ""
         GradeTextBox.Text = ""
         SubmitButton.Enabled = False
-        AddRadioButton.Checked = True
+        'AddRadioButton.Checked = True
         MathProblemGroupBox.Enabled = False
         MathProblemTypeBox.Enabled = False
 
@@ -127,10 +129,6 @@ Public Class MathContestForm
         Dim answer As Integer
         Dim studentAnswer As String
 
-        Dim storage As String
-        Dim Clear As Boolean
-        Dim newMessage As String
-
         firstNumber = CInt(FirstNumberTextBox.Text)
         secondNumber = CInt(SecondNumberTextBox.Text)
         If AddRadioButton.Checked = True Then
@@ -146,17 +144,14 @@ Public Class MathContestForm
         If CStr(answer) = studentAnswer Then
             MsgBox("Congratulations")
             RunCalculation()
-
-            newMessage = CStr(answer)
-            UserMessages(newMessage, Clear, storage)
-            storage = UserMessages(newMessage, Clear, storage)
-            SummaryTextBox.Text = studentAnswer
+            CorrectCount += 1
+            StudentAnswerTextBox.Text = ""
 
         ElseIf CStr(answer) <> studentAnswer Then
             MsgBox($"Incorect the answer was {answer}")
-            newMessage = studentAnswer
-            UserMessages(newMessage, Clear, storage)
-            storage = UserMessages(newMessage, Clear, storage)
+            RunCalculation()
+            IncorrectCount += 1
+            StudentAnswerTextBox.Text = ""
         End If
 
     End Sub
@@ -176,56 +171,9 @@ Public Class MathContestForm
     End Function
 
     Private Sub SummeryButton_Click(sender As Object, e As EventArgs) Handles SummeryButton.Click
-        Dim Storage As String
-        Dim clear As Boolean
-        Dim newMessage As String
-
-        newMessage = StudentAnswerTextBox.Text
-
-        MsgBox(UserMessages(newMessage, clear, Storage))
+        MsgBox($"{CorrectCount} were correct and {IncorrectCount} were incorrect")
     End Sub
 
-    Private Sub StudentAnswerTextBox_LostFocus(sender As Object, e As EventArgs) Handles StudentAnswerTextBox.LostFocus
-        Dim Storage As String
-        Dim clear As Boolean
-        Dim newMessage As String
-
-        newMessage = StudentAnswerTextBox.Text
-
-        MsgBox(UserMessages(newMessage, clear, Storage))
-    End Sub
+    Private CorrectCount As Integer
+    Private IncorrectCount As Integer
 End Class
-
-'If ageOkay = False And gradeCheck = False Then
-'    MsgBox("Student not elegible to compete, must be in grades 1 to 4 and age 7 to 11.")
-'    AgeTextBox.Text = ""
-'    GradeTextBox.Text = ""
-'ElseIf gradeCheck = False Then
-'    Try
-'        grade = CInt(GradeTextBox.Text)
-'        isValid = True
-'    Catch
-'    End Try
-'    If isValid = True Then
-'        MsgBox("Student not eligible to compete, must be in grades 1 to 4.")
-'        GradeTextBox.Text = ""
-'    ElseIf isValid = False Then
-
-'        MsgBox("Letter detected plese re-enter grade")
-'        GradeTextBox.Text = ""
-'    End If
-'ElseIf ageOkay = False Then
-'    Try
-'        age = CInt(AgeTextBox.Text)
-'        isValid = True
-'    Catch
-
-'    End Try
-'    If isValid = True Then
-'        MsgBox("Student not eligible to compete, Age Must be 7 to 11 years old.")
-'        AgeTextBox.Text = ""
-'    ElseIf isValid = False Then
-'        MsgBox("Letter detected plese re-enter age")
-'        AgeTextBox.Text = ""
-
-'    End If
