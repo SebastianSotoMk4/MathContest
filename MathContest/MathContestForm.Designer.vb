@@ -209,7 +209,7 @@ Partial Class MathContestForm
         Me.SummeryButton.Name = "SummeryButton"
         Me.SummeryButton.Size = New System.Drawing.Size(75, 23)
         Me.SummeryButton.TabIndex = 9
-        Me.SummeryButton.Text = "Sum&mery"
+        Me.SummeryButton.Text = "Sum&mary"
         Me.ToolTip.SetToolTip(Me.SummeryButton, "Score card of answers")
         Me.SummeryButton.UseVisualStyleBackColor = True
         '
@@ -267,9 +267,9 @@ Partial Class MathContestForm
         Me.StudentAnswerLabel.AutoSize = True
         Me.StudentAnswerLabel.Location = New System.Drawing.Point(6, 94)
         Me.StudentAnswerLabel.Name = "StudentAnswerLabel"
-        Me.StudentAnswerLabel.Size = New System.Drawing.Size(85, 13)
+        Me.StudentAnswerLabel.Size = New System.Drawing.Size(82, 13)
         Me.StudentAnswerLabel.TabIndex = 5
-        Me.StudentAnswerLabel.Text = "Studend Answer"
+        Me.StudentAnswerLabel.Text = "Student Answer"
         '
         'SecondNumberLabel
         '
@@ -295,7 +295,7 @@ Partial Class MathContestForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ClearButton
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(519, 450)
         Me.Controls.Add(Me.MathProblemGroupBox)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.SummeryButton)
