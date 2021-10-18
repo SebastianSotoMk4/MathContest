@@ -6,9 +6,6 @@
 Option Strict On
 Option Explicit On
 Public Class MathContestForm
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
-        Me.Close()
-    End Sub
     Sub CheckName()
         Dim ageOkay As Boolean
         Dim gradeCheck As Boolean
@@ -64,11 +61,6 @@ Public Class MathContestForm
             End If
         End If
     End Sub
-    Private Sub AgeTextBox_LostFocus(sender As Object, e As EventArgs) Handles AgeTextBox.LostFocus, GradeTextBox.LostFocus, NameTextBox.LostFocus
-        If NameTextBox.Text <> "" And AgeTextBox.Text <> "" And GradeTextBox.Text <> "" Then
-            CheckName()
-        End If
-    End Sub
     Sub SetDefaults()
         SecondNumberTextBox.Text = ""
         StudentAnswerTextBox.Text = ""
@@ -82,22 +74,6 @@ Public Class MathContestForm
         MathProblemTypeBox.Enabled = False
 
     End Sub
-    Private Sub MathContestForm_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'On start up the add button is checked to prevent floating inputs
-        SetDefaults()
-
-    End Sub
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        SetDefaults()
-    End Sub
-    Function RandomNumber(max As Integer) As Integer
-        Dim rndNum As Double
-        Dim NumRnd As Integer
-        Randomize(Now.Millisecond)
-        rndNum = System.Math.Floor(CDbl(Rnd() * (max)))
-        NumRnd = CInt(rndNum) + 1
-        Return NumRnd
-    End Function
     Sub RunCalculation()
         Dim firstNumber As Integer
         Dim secondNumber As Integer
@@ -108,7 +84,6 @@ Public Class MathContestForm
 
         If AddRadioButton.Checked = True Then
             answer = firstNumber + secondNumber
-
         ElseIf SubtractRadioButton.Checked = True Then
             answer = firstNumber - secondNumber
         ElseIf MultiplyRadioButton.Checked = True Then
@@ -116,12 +91,34 @@ Public Class MathContestForm
         ElseIf DivideRadioButton.Checked = True Then
             answer = firstNumber \ secondNumber
         End If
-        'answer = firstNumber + secondNumber
-
         FirstNumberTextBox.Text = CStr(firstNumber)
         SecondNumberTextBox.Text = CStr(secondNumber)
         studentAnswer = StudentAnswerTextBox.Text
+    End Sub
+    Function RandomNumber(max As Integer) As Integer
+        Dim rndNum As Double
+        Dim NumRnd As Integer
 
+        Randomize(Now.Millisecond)
+        rndNum = System.Math.Floor(CDbl(Rnd() * (max)))
+        NumRnd = CInt(rndNum) + 1
+        Return NumRnd
+    End Function
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        Me.Close()
+    End Sub
+    Private Sub AgeTextBox_LostFocus(sender As Object, e As EventArgs) Handles AgeTextBox.LostFocus, GradeTextBox.LostFocus, NameTextBox.LostFocus
+        If NameTextBox.Text <> "" And AgeTextBox.Text <> "" And GradeTextBox.Text <> "" Then
+            CheckName()
+        End If
+    End Sub
+    Private Sub MathContestForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        'On start up the add button is checked to prevent floating inputs
+        SetDefaults()
+
+    End Sub
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        SetDefaults()
     End Sub
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         Dim firstNumber As Integer
@@ -153,23 +150,10 @@ Public Class MathContestForm
             IncorrectCount += 1
             StudentAnswerTextBox.Text = ""
         End If
-
     End Sub
-
     Private Sub AddRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AddRadioButton.CheckedChanged, DivideRadioButton.CheckedChanged, SubtractRadioButton.CheckedChanged, MultiplyRadioButton.CheckedChanged
         RunCalculation()
     End Sub
-
-    Function UserMessages(ByVal newMessage As String, ByVal clear As Boolean, ByVal storage As String) As String
-        Dim messages As String = newMessage + vbNewLine + storage
-        If clear = True Then
-            messages = Nothing
-        ElseIf newMessage = "show" Then
-            messages = storage
-        End If
-        Return messages
-    End Function
-
     Private Sub SummeryButton_Click(sender As Object, e As EventArgs) Handles SummeryButton.Click
         MsgBox($"{CorrectCount} were correct and {IncorrectCount} were incorrect")
     End Sub
