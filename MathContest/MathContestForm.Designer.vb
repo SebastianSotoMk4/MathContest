@@ -129,7 +129,7 @@ Partial Class MathContestForm
         Me.MathProblemTypeBox.Location = New System.Drawing.Point(158, 168)
         Me.MathProblemTypeBox.Name = "MathProblemTypeBox"
         Me.MathProblemTypeBox.Size = New System.Drawing.Size(327, 143)
-        Me.MathProblemTypeBox.TabIndex = 1
+        Me.MathProblemTypeBox.TabIndex = 15
         Me.MathProblemTypeBox.TabStop = False
         Me.MathProblemTypeBox.Text = "Math Problem Type"
         Me.ToolTip.SetToolTip(Me.MathProblemTypeBox, "Make  selection")
@@ -141,7 +141,6 @@ Partial Class MathContestForm
         Me.DivideRadioButton.Name = "DivideRadioButton"
         Me.DivideRadioButton.Size = New System.Drawing.Size(55, 17)
         Me.DivideRadioButton.TabIndex = 14
-        Me.DivideRadioButton.TabStop = True
         Me.DivideRadioButton.Text = "Divide"
         Me.ToolTip.SetToolTip(Me.DivideRadioButton, "Select for Division")
         Me.DivideRadioButton.UseVisualStyleBackColor = True
@@ -153,7 +152,6 @@ Partial Class MathContestForm
         Me.MultiplyRadioButton.Name = "MultiplyRadioButton"
         Me.MultiplyRadioButton.Size = New System.Drawing.Size(60, 17)
         Me.MultiplyRadioButton.TabIndex = 13
-        Me.MultiplyRadioButton.TabStop = True
         Me.MultiplyRadioButton.Text = "Multiply"
         Me.ToolTip.SetToolTip(Me.MultiplyRadioButton, "Select for Multiplication")
         Me.MultiplyRadioButton.UseVisualStyleBackColor = True
@@ -165,7 +163,6 @@ Partial Class MathContestForm
         Me.SubtractRadioButton.Name = "SubtractRadioButton"
         Me.SubtractRadioButton.Size = New System.Drawing.Size(65, 17)
         Me.SubtractRadioButton.TabIndex = 12
-        Me.SubtractRadioButton.TabStop = True
         Me.SubtractRadioButton.Text = "Subtract"
         Me.ToolTip.SetToolTip(Me.SubtractRadioButton, "Select for Subtraction")
         Me.SubtractRadioButton.UseVisualStyleBackColor = True
@@ -177,7 +174,6 @@ Partial Class MathContestForm
         Me.AddRadioButton.Name = "AddRadioButton"
         Me.AddRadioButton.Size = New System.Drawing.Size(44, 17)
         Me.AddRadioButton.TabIndex = 11
-        Me.AddRadioButton.TabStop = True
         Me.AddRadioButton.Text = "Add"
         Me.ToolTip.SetToolTip(Me.AddRadioButton, "Select for Addition")
         Me.AddRadioButton.UseVisualStyleBackColor = True
