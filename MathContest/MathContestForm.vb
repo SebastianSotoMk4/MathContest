@@ -47,17 +47,19 @@ Public Class MathContestForm
                 MsgBox("Student not elegible to compete, must be in grades 1 to 4 and age 7 to 11.")
                 AgeTextBox.Text = ""
                 GradeTextBox.Text = ""
-                TabIndex = 1
+                AgeTextBox.Select()
+
 
             ElseIf gradeCheck = False Then
                 MsgBox("Student not eligible to compete, must be in grades 1 to 4.")
                 GradeTextBox.Text = ""
-                TabIndex = 2
+                GradeTextBox.Select()
+
             ElseIf ageOkay = False Then
                 MsgBox("Student not eligible to compete, Age Must be 7 to 11 years old.")
                 AgeTextBox.Text = ""
-                AgeTextBox.TabIndex = 0
-                TabIndex = 1
+                AgeTextBox.Select()
+
             End If
         End If
     End Sub
