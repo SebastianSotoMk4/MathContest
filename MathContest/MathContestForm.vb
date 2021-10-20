@@ -69,7 +69,7 @@ Public Class MathContestForm
         AgeTextBox.Text = ""
         GradeTextBox.Text = ""
         SubmitButton.Enabled = False
-        'AddRadioButton.Checked = True
+        'AddRadioButton.Checked = True ' remove commented out code - TJR
         MathProblemGroupBox.Enabled = False
         MathProblemTypeBox.Enabled = False
 
@@ -77,11 +77,11 @@ Public Class MathContestForm
     Sub RunCalculation()
         Dim firstNumber As Integer
         Dim secondNumber As Integer
-        Dim answer As Integer
-        Dim studentAnswer As String
+        Dim answer As Integer ' not used in this scope - TJR
+        Dim studentAnswer As String ' not used in this scope - TJR
         firstNumber = RandomNumber(10)
         secondNumber = RandomNumber(10)
-
+        ' What does this IF statement accomplish here?? - TJR
         If AddRadioButton.Checked = True Then
             answer = firstNumber + secondNumber
         ElseIf SubtractRadioButton.Checked = True Then
@@ -93,10 +93,10 @@ Public Class MathContestForm
         End If
         FirstNumberTextBox.Text = CStr(firstNumber)
         SecondNumberTextBox.Text = CStr(secondNumber)
-        studentAnswer = StudentAnswerTextBox.Text
+        studentAnswer = StudentAnswerTextBox.Text ' not used in this scope - TJR
     End Sub
     Function RandomNumber(max As Integer) As Integer
-        Dim rndNum As Double
+        Dim rndNum As Double 'variable name are confusing - TJR
         Dim NumRnd As Integer
 
         Randomize(Now.Millisecond)
@@ -126,8 +126,8 @@ Public Class MathContestForm
         Dim answer As Integer
         Dim studentAnswer As String
 
-        firstNumber = CInt(FirstNumberTextBox.Text)
-        secondNumber = CInt(SecondNumberTextBox.Text)
+        firstNumber = CInt(FirstNumberTextBox.Text) 'crashes program, need to trap exceptions - TJR
+        secondNumber = CInt(SecondNumberTextBox.Text) 'crashes program, need to trap exceptions - TJR
         If AddRadioButton.Checked = True Then
             answer = firstNumber + secondNumber
         ElseIf SubtractRadioButton.Checked = True Then
@@ -141,13 +141,13 @@ Public Class MathContestForm
         If CStr(answer) = studentAnswer Then
             MsgBox("Congratulations")
             RunCalculation()
-            CorrectCount += 1
+            CorrectCount += 1 'Global variables should use "Me" keyword as in "me.correctCount"  - TJR
             StudentAnswerTextBox.Text = ""
 
         ElseIf CStr(answer) <> studentAnswer Then
             MsgBox($"Incorect the answer was {answer}")
             RunCalculation()
-            IncorrectCount += 1
+            IncorrectCount += 1 'Global variables should use "Me" keyword as in "me.incorrectCount"  - TJR
             StudentAnswerTextBox.Text = ""
         End If
     End Sub
@@ -157,7 +157,7 @@ Public Class MathContestForm
     Private Sub SummeryButton_Click(sender As Object, e As EventArgs) Handles SummeryButton.Click
         MsgBox($"{CorrectCount} were correct and {IncorrectCount} were incorrect")
     End Sub
-
-    Private CorrectCount As Integer
-    Private IncorrectCount As Integer
+    'How could you store this data without using global variables? -TJR
+    Private CorrectCount As Integer ' camelCase, variable declarations should be at the top of scope. class,sub,function etc. - TJR
+    Private IncorrectCount As Integer 'camelCase
 End Class
