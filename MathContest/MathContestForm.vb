@@ -6,6 +6,8 @@
 Option Strict On
 Option Explicit On
 Public Class MathContestForm
+    Private correctCount As Integer
+    Private incorrectCount As Integer
     Sub CheckName()
         Dim ageOkay As Boolean
         Dim gradeCheck As Boolean
@@ -71,7 +73,6 @@ Public Class MathContestForm
         AgeTextBox.Text = ""
         GradeTextBox.Text = ""
         SubmitButton.Enabled = False
-        'AddRadioButton.Checked = True
         MathProblemGroupBox.Enabled = False
         MathProblemTypeBox.Enabled = False
 
@@ -80,7 +81,6 @@ Public Class MathContestForm
         Dim firstNumber As Integer
         Dim secondNumber As Integer
         Dim answer As Integer
-        Dim studentAnswer As String
         firstNumber = RandomNumber(10)
         secondNumber = RandomNumber(10)
 
@@ -95,16 +95,15 @@ Public Class MathContestForm
         End If
         FirstNumberTextBox.Text = CStr(firstNumber)
         SecondNumberTextBox.Text = CStr(secondNumber)
-        studentAnswer = StudentAnswerTextBox.Text
     End Sub
     Function RandomNumber(max As Integer) As Integer
-        Dim rndNum As Double
-        Dim NumRnd As Integer
+        Dim createNumber As Double
+        Dim returnNumber As Integer
 
         Randomize(Now.Millisecond)
-        rndNum = System.Math.Floor(CDbl(Rnd() * (max)))
-        NumRnd = CInt(rndNum) + 1
-        Return NumRnd
+        createNumber = System.Math.Floor(CDbl(Rnd() * (max)))
+        returnNumber = CInt(createNumber) + 1
+        Return returnNumber
     End Function
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
@@ -127,9 +126,8 @@ Public Class MathContestForm
         Dim secondNumber As Integer
         Dim answer As Integer
         Dim studentAnswer As String
-
-        firstNumber = CInt(FirstNumberTextBox.Text)
-        secondNumber = CInt(SecondNumberTextBox.Text)
+        firstNumber = CInt(FirstNumberTextBox.Text) ' needs try catch
+        secondNumber = CInt(SecondNumberTextBox.Text) ' needs try catch
         If AddRadioButton.Checked = True Then
             answer = firstNumber + secondNumber
         ElseIf SubtractRadioButton.Checked = True Then
@@ -143,13 +141,13 @@ Public Class MathContestForm
         If CStr(answer) = studentAnswer Then
             MsgBox("Congratulations")
             RunCalculation()
-            CorrectCount += 1
+            Me.correctCount += 1
             StudentAnswerTextBox.Text = ""
 
         ElseIf CStr(answer) <> studentAnswer Then
             MsgBox($"Incorect the answer was {answer}")
             RunCalculation()
-            IncorrectCount += 1
+            Me.incorrectCount += 1
             StudentAnswerTextBox.Text = ""
         End If
     End Sub
@@ -157,9 +155,6 @@ Public Class MathContestForm
         RunCalculation()
     End Sub
     Private Sub SummeryButton_Click(sender As Object, e As EventArgs) Handles SummeryButton.Click
-        MsgBox($"{CorrectCount} were correct and {IncorrectCount} were incorrect")
+        MsgBox($"{correctCount} were correct and {incorrectCount} were incorrect")
     End Sub
-
-    Private CorrectCount As Integer
-    Private IncorrectCount As Integer
 End Class
